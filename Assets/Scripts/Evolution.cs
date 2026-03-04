@@ -51,6 +51,7 @@ public class Evolution : MonoBehaviour
     public GameObject[] layers;
     public float time = 20f;
     public GameObject[] bestCar;
+    public int l = 7;
     void Start()
     {
         layers = GameObject.FindGameObjectsWithTag("Layer");
@@ -85,11 +86,15 @@ public class Evolution : MonoBehaviour
         time -= Time.deltaTime;
         if(time < 0)
         {
+            l--;
             time = 20f;
-            layers = GameObject.FindGameObjectsWithTag("Layer");
-            foreach (GameObject layer in layers)
-            {
-                layer.GetComponent<Layer>().Generate();
+            if (l <= 0) {
+                layers = GameObject.FindGameObjectsWithTag("Layer");
+                foreach (GameObject layer in layers)
+                {
+                    layer.GetComponent<Layer>().Generate();
+                }
+                l = 7;
             }
             cars = new GameObject[numbercars];
             cars = GameObject.FindGameObjectsWithTag("Car");
