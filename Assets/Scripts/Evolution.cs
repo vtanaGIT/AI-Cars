@@ -66,7 +66,7 @@ public class Evolution : MonoBehaviour
                 }
                 else {
                     GameObject a = Instantiate(bestCar, new Vector3(-12, 0), Quaternion.identity);
-                    a.GetComponent<AI>().Randomize();
+                    a.GetComponent<AI>().Mutate(bestCar.GetComponent<AI>());
                     a.transform.Rotate(new Vector3(0, 0, 180));
                 }
             }

@@ -96,6 +96,34 @@ public class AI : MonoBehaviour
             b[i] = Random.Range(-2.5f, 2.5f);
         }
     }
+    public void Mutate(AI ai)
+    {
+        for (int i = 0; i < n1.Length; i++)
+        {
+            for (int j = 0; j < n2.Length; j++)
+            {
+                w1[i, j] = Random.Range(-2.5f, 2.5f) / 50 + ai.w1[i,j];
+            }
+        }
+        for (int i = 0; i < n2.Length; i++)
+        {
+            for (int j = 0; j < n3.Length; j++)
+            {
+                w2[i, j] = Random.Range(-2.5f, 2.5f) / 50 + ai.w2[i, j];
+            }
+        }
+        for (int i = 0; i < n3.Length; i++)
+        {
+            for (int j = 0; j < r.Length; j++)
+            {
+                w3[i, j] = Random.Range(-2.5f, 2.5f) / 50 + ai.w3[i, j];
+            }
+        }
+        for (int i = 0; i < b.Length; i++)
+        {
+            b[i] = Random.Range(-2.5f, 2.5f) / 50 + ai.b[i];
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Layer")
