@@ -97,15 +97,17 @@ public class Evolution : MonoBehaviour
             {
                 if (car.transform.position.x > Maximum(bestCar)||IsNull(bestCar))
                 {
-                    car.transform.position = new Vector3(-12, 0);
+                    
                     car.transform.rotation = Quaternion.identity;
                     car.transform.Rotate(new Vector3(0, 0, 180));
                     if(car.transform.position.x > Minimum(bestCar))
                     {
+                        car.transform.position = new Vector3(-12, 0);
                         bestCar[Minimum(bestCar)]=car;
                     }
                     else
                     {
+                        car.transform.position = new Vector3(-12, 0);
                         for (int i = 0; i < bestCar.Length; i++)
                         {
                             if (bestCar[i] == null)
@@ -122,22 +124,30 @@ public class Evolution : MonoBehaviour
                     Destroy(car);
                 }
             }
-            for (int i = 0; i < numbercars; i++) {
-                int counter =0; 
-                if (IsInMassive(cars[i],bestCar))
-                {
 
-                    GameObject b = Instantiate(bestCar[counter]);
+            for (int i = 0; i < numbercars; i++) {
+
+                int index = System.Array.IndexOf(bestCar, cars[i]);
+                if (index != -1)
+                {
+                    GameObject b = Instantiate(bestCar[index]);
+                    b.GetComponent<BoxCollider2D>().enabled = true;
+                    b.GetComponent<AI>().enabled = true;
+                    b.GetComponent<Car>().enabled = true;
+                    bestCar[index] = b;
                     Destroy(cars[i]);
-                    bestCar[counter] = b;
-                    counter++;
                 }
                 else {
-                    int j = Random.Range(0,bestCar.Length+1);
+
+                    int j = Random.Range(0,bestCar.Length);
                     GameObject a = Instantiate(bestCar[j]);
+                    a.GetComponent<BoxCollider2D>().enabled = true;
+                    a.GetComponent<AI>().enabled = true;
+                    a.GetComponent<Car>().enabled = true;
                     a.GetComponent<AI>().Mutate(bestCar[j].GetComponent<AI>());
                 }
             }
+            
         }
     }
 }
