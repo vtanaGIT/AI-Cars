@@ -23,11 +23,11 @@ public class AI : MonoBehaviour
         {
             if (i % 2 == 1)
             {
-                n1[i] = Layer.GetComponent<Layer>().kids[i].transform.position.x;
+                n1[i] = Layer.GetComponent<Layer>().kids[(i - 5)/2].transform.position.x;
             }
             else
             {
-                n1[i] = Layer.GetComponent<Layer>().kids[i].transform.position.y;
+                n1[i] = Layer.GetComponent<Layer>().kids[(i - 6)/2].transform.position.y;
             }
 
         }

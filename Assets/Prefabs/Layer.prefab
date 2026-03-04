@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7490196, g: 1, b: 0.049066544, a: 0.14117648}
+  m_Color: {r: 0.7490196, g: 1, b: 0.049066544, a: 0.0627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,6 +163,16 @@ MonoBehaviour:
   - {r: 0.3886792, g: 0.07163891, b: 0, a: 1}
   - {r: 0.18490559, g: 0, b: 0.12544578, a: 1}
   - {r: 0.055538327, g: 0, b: 0.10188681, a: 1}
-  min: 9
-  max: 11
+  count: 10
   boxpr: {fileID: 7166215432438884218, guid: 28399d78fda12984db546efe4b4a3a65, type: 3}
+  kids:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
