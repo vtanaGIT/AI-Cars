@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Layer
+  - Box
+  - Car
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Car
   - Water
   - UI
   - 
