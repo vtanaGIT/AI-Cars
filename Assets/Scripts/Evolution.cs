@@ -52,22 +52,29 @@ public class Evolution : MonoBehaviour
             float max = -30f;
             foreach (GameObject car in cars)
             {
-                if(car.transform.position.x > max)
+                if (car.transform.position.x > max)
                 {
+                    car.transform.position = new Vector3(-12, 0);
+                    car.transform.rotation = Quaternion.identity;
+                    car.transform.Rotate(new Vector3(0, 0, 180));
                     bestCar = car;
                 }
-                Destroy(car);
+                else
+                {
+                    Destroy(car);
+                }
             }
             for (int i = 0; i < numbercars; i++) {
-                if (i == 0)
+                if (cars[i]==bestCar)
                 {
-                    GameObject b = Instantiate(bestCar, new Vector3(-12, 0), Quaternion.identity);
-                    b.transform.Rotate(new Vector3(0, 0, 180));
+
+                    GameObject b = Instantiate(bestCar);
+                    Destroy(cars[i]);
+                    bestCar = b;
                 }
                 else {
-                    GameObject a = Instantiate(bestCar, new Vector3(-12, 0), Quaternion.identity);
+                    GameObject a = Instantiate(bestCar);
                     a.GetComponent<AI>().Mutate(bestCar.GetComponent<AI>());
-                    a.transform.Rotate(new Vector3(0, 0, 180));
                 }
             }
         }

@@ -12,6 +12,13 @@ public class AI : MonoBehaviour
     float[,] w3 = new float[10, 4];
     float[] b = new float[3];
     public GameObject Layer;
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Layer")
+        {
+            Layer = collision.gameObject;
+        }
+    }
     public float[] Result()
     {
         n1[0] = transform.position.x;
@@ -124,11 +131,5 @@ public class AI : MonoBehaviour
             b[i] = Random.Range(-2.5f, 2.5f) / 50 + ai.b[i];
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Layer")
-        {
-            Layer = collision.gameObject;
-        }
-    }
+    
 }
