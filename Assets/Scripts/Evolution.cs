@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class Evolution : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int numbercars;
+    public GameObject[] cars;
     void Start()
+    {
+        cars = new GameObject[numbercars];
+        foreach (GameObject car in cars) { 
+            car.GetComponent<AI>().Randomize();
+        }
+    }
+    public void NewGeneration()
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
